@@ -70,7 +70,7 @@ int lerInteiro(char mensagem[], int minimo, int maximo) {
             return (int)valor;
         }
 
-        printf("Valor invalido! Digite um numero entre %d e %d.\n",
+        printf("Valor invalido! Digite um numero inteiro positivo.\n",
                minimo, maximo);
     }
 }
@@ -407,3 +407,4 @@ int main() {
 
     return 0;
 }
+
