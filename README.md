@@ -4,72 +4,62 @@
 ![Ambiente](https://img.shields.io/badge/Ambiente-Terminal-lightgrey.svg)
 ![Instituição](https://img.shields.io/badge/Institui%C3%A7%C3%A3o-UNICESUMAR-green.svg)
 
-**PSE em Ação** é uma aplicação computacional desenvolvida em linguagem C, executada em ambiente de terminal, criada para apoiar equipes de educação e saúde no planejamento, registro e acompanhamento das ações coletivas do **Programa Saúde na Escola (PSE)**. 
 
-Este projeto foi desenvolvido como requisito da Atividade de Estudo Programada (AEP) do 2º semestre de 2026 para os cursos de Engenharia de Software e Análise e Desenvolvimento de Sistemas da Universidade Cesumar (UNICESUMAR).
+Sistema em C, feito para rodar no terminal, para gerenciar as ações do Programa Saúde na Escola (PSE).
 
----
+Projeto da AEP do 2º semestre de 2026, para os cursos de Engenharia de Software e Análise e Desenvolvimento de Sistemas da UNICESUMAR.
 
-## 👥 Equipe Desenvolvedora
-* Ana Carolina Mestriner
-* Gabriel Quintanilha
-* Pedro Henrique Gardin Segantini da Silva
+## Sobre o projeto
 
----
+A ideia é ajudar equipes de educação e saúde a planejar, registrar e acompanhar as ações coletivas do PSE, principalmente as de saúde mental, mas também as de outros temas do programa. Em vez de planilhas e formulários espalhados, o sistema reúne tudo em um só lugar e mostra o que está planejado, o que já foi realizado e o que foi cancelado.
 
-## 🎯 Objetivo do Projeto
-Auxiliar na organização das atividades de promoção da saúde (com foco em saúde mental e outras temáticas do PSE) no ambiente escolar. A solução substitui registros dispersos em planilhas e formulários, centralizando o controle de ações planejadas, realizadas e canceladas. 
+Um ponto importante: o programa trabalha só com dados fictícios e informações coletivas. Ele não guarda nome, diagnóstico, prontuário nem qualquer dado individual de estudante, e também não faz diagnóstico, triagem ou prescrição.
 
-**⚠️ Importante (Limites Éticos):** O sistema foi desenhado para utilizar **apenas dados fictícios e informações coletivas**. Ele **não armazena** nomes, diagnósticos, prontuários, condições clínicas ou dados sensíveis individuais dos estudantes. O programa também não realiza diagnósticos, triagens ou prescrições médicas.
+## Funcionalidades
 
----
+Ao abrir, o programa mostra um menu que fica em loop até o usuário sair. As opções são:
 
-## ⚙️ Funcionalidades (Escopo do Sistema)
+1. *Cadastrar ação*: registra código, escola, tema, data prevista, público-alvo, responsável, quantidade prevista de participantes e a situação inicial.
+2. *Listar ações*: mostra todas as ações cadastradas.
+3. *Pesquisar ação*: busca por código, escola ou tema.
+4. *Atualizar situação*: muda o status da ação para Planejada, Realizada ou Cancelada. Se for marcada como Realizada, o sistema pede a quantidade real de participantes.
+5. *Gerar resumo*: mostra o total de ações, quantas há em cada situação, participantes previstos x efetivos e o percentual geral de participação.
 
-O sistema opera através de um menu principal interativo em loop e possui as seguintes funcionalidades:
+Os dados ficam só na memória (structs e vetores) enquanto o programa está aberto. Nesta versão não há banco de dados nem gravação em arquivo, então tudo se perde ao fechar.
 
-1. **Cadastrar Ação:** Permite registrar uma ação informando código, escola, tema, data prevista, público-alvo, responsável, quantidade prevista de participantes e situação inicial.
-2. **Listar Ações:** Apresenta todas as ações cadastradas no sistema de maneira estruturada.
-3. **Pesquisar Ação:** Permite localizar ações específicas através de busca por Código, Escola ou Tema.
-4. **Atualizar Situação:** Altera o status de uma ação (Planejada, Realizada ou Cancelada). Caso a ação seja marcada como "Realizada", o sistema solicita o registro da quantidade efetiva de participantes.
-5. **Gerar Resumo:** Exibe um painel consolidado contendo:
-   - Total de ações cadastradas.
-   - Quantidade de ações por situação.
-   - Total previsto vs. efetivo de participantes.
-   - Percentual geral de participação.
+## Como compilar e executar
 
-*Nota: Os dados são armazenados na memória (utilizando Structs e Vetores) durante a execução e não são persistidos em banco de dados ou arquivos de texto nesta versão.*
+### O que você precisa
 
----
+- Windows
+- GCC instalado (Dev-C++ e Code::Blocks também servem para compilar)
+- Prompt de Comando (CMD)
 
-## 💻 Como Compilar e Executar
+### Compilando
 
-### Pré-requisitos
-* Sistema Operacional Windows.
-* Compilador GCC instalado (ou ambientes como Dev-C++ / Code::Blocks) para compilar o código-fonte.
-* Prompt de Comando (CMD) para execução ideal.
+No CMD, entre na pasta do projeto e compile:
 
-### Compilando a partir do código-fonte (via GCC)
-1. Abra o terminal (Prompt de Comando).
-2. Navegue até o diretório onde o arquivo `.c` está localizado:
-   ```cmd
-   cd caminho/para/a/pasta/do/projeto
-   ```
-3. Compile o código com o comando:
-   ```cmd
-   gcc -o PSE_Acao main.c
-   ```
-   *(Substitua `main.c` pelo nome exato do seu arquivo de código-fonte)*
+cmd
+cd caminho\para\a\pasta\do\projeto
+gcc -o PSE_Acao main.c
 
-### Executando o programa
-Para garantir que o programa não feche abruptamente ao ser finalizado, execute-o diretamente pelo terminal:
-1. No Prompt de Comando, no mesmo diretório do arquivo executável, digite:
-   ```cmd
-   PSE_Acao.exe
-   ```
-2. Pressione `Enter`. O menu principal do sistema será exibido.
 
----
+Troque main.c pelo nome do seu arquivo-fonte, se for diferente.
 
-## 📚 Documentação
-A documentação completa do projeto, incluindo Contextualização, Diagramas de Casos de Uso, Requisitos Funcionais e Não Funcionais, Fluxogramas e o Manual do Usuário detalhado com capturas de tela, encontra-se no arquivo `PSE_em_Acao_Documento_Final.docx` (ou versão `.pdf`) armazenado na pasta de documentação deste repositório.
+### Executando
+
+Rode pelo próprio CMD, na mesma pasta do executável. Se abrir com duplo clique, a janela fecha assim que o programa termina.
+
+cmd
+PSE_Acao.exe
+
+
+## Documentação
+
+O documento completo está na pasta de documentação do repositório, em PSE_em_Acao_Documento_Final.docx (ou na versão .pdf). Ele traz a contextualização, os diagramas de casos de uso, os requisitos funcionais e não funcionais, os fluxogramas e o manual do usuário com capturas de tela.
+
+## Equipe
+
+- Ana Carolina Mestriner
+- Gabriel Quintanilha
+- Pedro Henrique Gardin Segantini da Silva
